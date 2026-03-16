@@ -1,4 +1,4 @@
-# identiy-sec-tools
+# identity-sec-tools
 home lab for IAM integration with Google Workspace
 ## Identity Security Lab
 
