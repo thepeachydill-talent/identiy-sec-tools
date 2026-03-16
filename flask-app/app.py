@@ -6,14 +6,14 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key ="7edd3903bad8068f3ae62e3e9f31a294d2e479817faf1d95c087b55599c30f5a"
+app.secret_key ="97ea37f57a24e1109390f6f3716f80b4209eb244113b393820ab0a7d73b60ac8"
 
 oauth = OAuth(app)
 
 keycloak = oauth.register(
     name="keycloak",
     client_id="identity-sec-lab",
-    client_secret=("EsmGHDNspx1kx8RGjloQsw13KMgjPc8T"),
+    client_secret=("AdHJuZDfQN0rxQNczxWaHWZgU8UAxEnp"),
     server_metadata_url="http://localhost:8080/realms/master/.well-known/openid-configuration",
     client_kwargs={"scope": "openid profile email"},
 )
@@ -24,7 +24,13 @@ def home():
         return f"<pre>{session['user']}</pre>"
     return '<a href="/login">Login</a>'
 
-
+@app.route("/debug/session")
+def debug_session():
+    return {
+        "has_claims": "claims" in session,
+        "claims": session.get("claims"),
+        "session_keys": list(session.keys()),
+    }
 @app.route("/login")
 def login():
     return keycloak.authorize_redirect(
