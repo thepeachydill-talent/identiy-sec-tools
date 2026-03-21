@@ -14,6 +14,22 @@ The goal is to progressively build a working identity security environment that 
 - Privileged access management concepts
 - SaaS access governance
 
+## 🚧 Project Status
+
+**Current Phase:** RBAC Implementation Complete (Week 3)
+
+### Completed
+
+- ✔ Keycloak integration as Identity Provider (OIDC)
+- ✔ User authentication via OpenID Connect
+- ✔ Token parsing and identity claim extraction
+- ✔ Role claims exposed in JWT (`realm_access.roles`)
+- ✔ Session-based identity handling in Flask
+- ✔ Role-Based Access Control (RBAC) enforcement
+- ✔ Protected application routes
+- ✔ Authorization denial (403) for insufficient privileges
+- ✔ Successful access for authorized roles
+  
 # Current Implementation
 
 The project currently demonstrates a working **OpenID Connect authentication flow** between a Flask application and a Keycloak identity provider.
