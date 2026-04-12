@@ -62,6 +62,19 @@ The application currently retrieves the following claims from the ID token:
 
 These claims are extracted from the OpenID Connect ID token returned during authentication.
 
+## Identity Lifecycle Automation
+This project includes basic identity lifecycle automation using the Keycloak Admin API. These scripts simulate common IAM workflows such as user provisioning, role assignment, and deprovisioning.
+
+All automations are implemented in Python and interact directly with Keycloak to manage users and roles within the configured realm.
+
+### Components
+- create user (provisions new user with req. credentials)
+- assign role (grants access based on spec. role)
+- disable user (revokes access by disabling acct.)
+
+### Implementation 
+Lifecycle Oerations are built using KeyCloak Admin API in the scripts in this repo. 
+
 ## Technologies Used
 
 - **Keycloak** — Identity Provider
@@ -93,24 +106,12 @@ The current implementation focuses on authentication.
 
 Future development will expand the lab to demonstrate authorization and identity governance capabilities.
 
-Planned improvements include:
+Planned updates include:
 
-- Role-Based Access Control (RBAC)
-- Role claims included in tokens
-- Protected routes based on roles
-- Identity lifecycle automation
 - Just-In-Time privileged access concepts
 - Integration with SaaS platforms (e.g., Google Workspace)
 - Audit logging and access tracking
 
-## Development Roadmap
-
-Next development steps include:
-
-1. Creating roles within Keycloak
-2. Assigning roles to users
-3. Including role claims in authentication tokens
-4. Enforcing role-based access control in the Flask application
 
 ## Current Status
 Current milestone:
@@ -118,9 +119,13 @@ Current milestone:
 - ✔ Token exchange functioning
 - ✔ User identity claims retrieved
 - ✔ Session-based authentication working
-Next milestone:
-
 - ➡ Implement role-based authorization
+
+Next milestone:
+- Just-In-Time Implementation
+- SaaS Integration
+- Audit logging/tacking
+
 # Project Purpose
 
 This lab explores how identity providers integrate with applications and how identity becomes the central control plane for access management in modern architectures.
